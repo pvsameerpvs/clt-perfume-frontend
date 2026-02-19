@@ -20,16 +20,16 @@ export function Navbar() {
       {/* Top Banner Ticker */}
       <div className="bg-black text-white text-[10px] md:text-xs py-2 overflow-hidden flex">
         <div className="animate-marquee whitespace-nowrap flex min-w-full">
-          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
-          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
-          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
-          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          <span className="mx-4">RAMADAN SPECIAL: 30% OFF ON LUXURY PERFUMES ✨ NOW AVAILABLE UNDER 49!</span>
+          <span className="mx-4">RAMADAN SPECIAL: 30% OFF ON LUXURY PERFUMES ✨ NOW AVAILABLE UNDER 49!</span>
+          <span className="mx-4">RAMADAN SPECIAL: 30% OFF ON LUXURY PERFUMES ✨ NOW AVAILABLE UNDER 49!</span>
+          <span className="mx-4">RAMADAN SPECIAL: 30% OFF ON LUXURY PERFUMES ✨ NOW AVAILABLE UNDER 49!</span>
           
           {/* Duplicate for seamless loop */}
-          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
-          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
-          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
-          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          <span className="mx-4">RAMADAN SPECIAL: 30% OFF ON LUXURY PERFUMES ✨ NOW AVAILABLE UNDER 49!</span>
+          <span className="mx-4">RAMADAN SPECIAL: 30% OFF ON LUXURY PERFUMES ✨ NOW AVAILABLE UNDER 49!</span>
+          <span className="mx-4">RAMADAN SPECIAL: 30% OFF ON LUXURY PERFUMES ✨ NOW AVAILABLE UNDER 49!</span>
+          <span className="mx-4">RAMADAN SPECIAL: 30% OFF ON LUXURY PERFUMES ✨ NOW AVAILABLE UNDER 49!</span>
         </div>
       </div>
 
