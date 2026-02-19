@@ -10,8 +10,8 @@ export function Hero() {
         {/* Background Image: Person holding bottle concept */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1605619129486-ea578de82583?q=80&w=2540&auto=format&fit=crop"
-            alt="Person holding luxury perfume bottle"
+            src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=2569&auto=format&fit=crop"
+            alt="Luxury perfume bottle in dark setting"
             fill
             className="object-cover opacity-80"
             priority

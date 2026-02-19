@@ -1,64 +1,121 @@
 
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { 
+  User, 
+  Heart, 
+  ShoppingBag, 
+  Search, 
+  MapPin, 
+  Zap,
+  Globe 
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+import { Input } from "@/components/ui/input"
+import { Badge } from "@/components/ui/badge"
 
 export function Navbar() {
   return (
-    <nav className="sticky top-0 w-full z-50 bg-white border-b border-transparent pt-4 pb-2">
-      <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        
-        {/* Left: Menu Trigger */}
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" className="flex items-center gap-2 hover:bg-transparent pl-0 text-neutral-900 group">
-              <span className="text-sm font-medium">Menu</span>
-              <Menu className="h-5 w-5 stroke-[1.5] group-hover:scale-110 transition-transform" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-full sm:w-[400px] bg-neutral-900 text-white border-neutral-800">
-            <SheetHeader>
-              <SheetTitle className="text-left font-serif text-3xl text-white">CLE</SheetTitle>
-            </SheetHeader>
-            <div className="flex flex-col gap-6 mt-12">
-              <Link href="#" className="text-2xl font-light hover:text-neutral-400 transition-colors">
-                Collections
-              </Link>
-              <Link href="#" className="text-2xl font-light hover:text-neutral-400 transition-colors">
-                Our Story
-              </Link>
-              <Link href="#" className="text-2xl font-light hover:text-neutral-400 transition-colors">
-                Journal
-              </Link>
-              <Link href="#" className="text-2xl font-light hover:text-neutral-400 transition-colors">
-                Contact
-              </Link>
-            </div>
-          </SheetContent>
-        </Sheet>
-
-        {/* Center: Logo */}
-        <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2">
-          {/* Replaced simpler text with the requested style. 
-              The reference image has a logo icon + text. 
-              Using text for now as no SVG provided, styled to match generally. */}
-          <span className="text-2xl font-serif tracking-tight text-neutral-900">
-            CLE Perfumes
-          </span>
-        </Link>
-
-        {/* Right: Action Button */}
-        <Button className="rounded-full bg-neutral-900 text-white hover:bg-neutral-800 px-6 text-xs tracking-widest uppercase font-medium">
-          Explore
-        </Button>
+    <header className="w-full bg-white z-50 relative">
+      {/* Top Banner Ticker */}
+      {/* Top Banner Ticker */}
+      <div className="bg-black text-white text-[10px] md:text-xs py-2 overflow-hidden flex">
+        <div className="animate-marquee whitespace-nowrap flex min-w-full">
+          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          
+          {/* Duplicate for seamless loop */}
+          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+          <span className="mx-4">CLE PERFUMES - WHERE FRAGRANCE BECOMES LUXURY !!!!</span>
+        </div>
       </div>
-    </nav>
+
+      {/* Main Header */}
+      <div className="container mx-auto px-4 py-6">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+          
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0">
+            <div className="flex flex-col items-center">
+               <span className="text-3xl font-serif font-bold tracking-tighter">CLE</span>
+               <span className="text-[10px] tracking-[0.3em] uppercase mt-1">Perfumes</span>
+            </div>
+          </Link>
+
+          {/* Search Bar */}
+          <div className="flex-1 w-full max-w-2xl relative">
+            <Input 
+              type="search" 
+              placeholder="Search for product or brand" 
+              className="w-full rounded-full pl-6 pr-12 h-12 border-neutral-300 focus-visible:ring-black/5 text-neutral-600 font-light"
+            />
+            <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-neutral-400 h-5 w-5" />
+          </div>
+
+          {/* Actions */}
+          <div className="flex items-center gap-6 flex-shrink-0 text-neutral-600">
+            <Link href="#" className="flex flex-col items-center gap-1 hover:text-black transition-colors">
+              <User className="h-5 w-5" />
+              <span className="text-[10px] uppercase tracking-wide">Sign In</span>
+            </Link>
+
+            <Link href="#" className="flex flex-col items-center gap-1 hover:text-black transition-colors">
+              <Heart className="h-5 w-5" />
+              <span className="text-[10px] uppercase tracking-wide">Wishlist</span>
+            </Link>
+
+            <Link href="#" className="flex flex-col items-center gap-1 hover:text-black transition-colors relative">
+              <div className="relative">
+                <ShoppingBag className="h-5 w-5" />
+                <Badge className="absolute -top-1 -right-1 h-3 w-3 p-0 flex items-center justify-center bg-black text-white rounded-full text-[8px]">0</Badge>
+              </div>
+              <span className="text-[10px] uppercase tracking-wide">My Bag</span>
+            </Link>
+
+            <div className="h-8 w-px bg-neutral-200 mx-2 hidden sm:block"></div>
+
+            <Link href="#" className="flex flex-col items-center gap-1 text-green-600 hover:text-green-700 transition-colors">
+              <MapPin className="h-5 w-5" />
+              <span className="text-[10px] uppercase tracking-wide">Find Store</span>
+            </Link>
+
+            <div className="flex items-center gap-1 cursor-pointer hover:text-black transition-colors">
+               {/* Simplified Flag/Currency */}
+               <div className="h-4 w-4 rounded-full bg-neutral-200 flex items-center justify-center overflow-hidden">
+                 <div className="h-full w-1/3 bg-green-600"></div>
+                 <div className="h-full w-1/3 bg-white"></div>
+                 <div className="h-full w-1/3 bg-black"></div>
+               </div>
+               <span className="text-xs font-medium">ENG-AED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Navigation Links */}
+      <div className="border-t border-neutral-100 hidden lg:block">
+        <div className="container mx-auto px-4">
+          <ul className="flex items-center justify-between py-4 text-xs font-medium tracking-widest uppercase text-neutral-600">
+            <li>
+              <Link href="#" className="flex items-center gap-1 text-yellow-600 hover:text-yellow-700">
+                <Zap className="h-4 w-4 fill-current" />
+                Special Deals
+              </Link>
+            </li>
+            <li className="hover:text-black cursor-pointer"><Link href="#">Men</Link></li>
+            <li className="hover:text-black cursor-pointer"><Link href="#">Women</Link></li>
+            <li className="hover:text-black cursor-pointer"><Link href="#">Shop By Brands</Link></li>
+            <li className="hover:text-black cursor-pointer"><Link href="#">Best Sellers</Link></li>
+            <li className="hover:text-black cursor-pointer"><Link href="#">Accessories</Link></li>
+            <li className="hover:text-black cursor-pointer"><Link href="#">Home & Body Care</Link></li>
+            <li className="hover:text-black cursor-pointer"><Link href="#">Inspired Creations</Link></li>
+            <li className="hover:text-black cursor-pointer"><Link href="#">Fragrance Oils</Link></li>
+          </ul>
+        </div>
+      </div>
+    </header>
   )
 }
