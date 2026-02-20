@@ -14,8 +14,11 @@ import {
   CreditCard 
 } from "lucide-react"
 
+import { useCart } from "@/contexts/cart-context"
+
 export function ProductInfo({ product }: { product: Product }) {
   const [quantity, setQuantity] = useState(1)
+  const { addToCart } = useCart()
 
   return (
     <div className="flex flex-col h-full">
@@ -75,7 +78,11 @@ export function ProductInfo({ product }: { product: Product }) {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button variant="outline" className="h-14 flex-1 rounded-full border-neutral-300 hover:bg-neutral-50 uppercase tracking-widest text-xs font-medium">
+          <Button 
+            onClick={() => addToCart(product, quantity)}
+            variant="outline" 
+            className="h-14 flex-1 rounded-full border-neutral-300 hover:bg-neutral-50 uppercase tracking-widest text-xs font-medium transition-colors"
+          >
             Add to Cart
           </Button>
           <Button className="h-14 flex-1 rounded-full bg-black hover:bg-neutral-800 text-white uppercase tracking-widest text-xs font-medium">

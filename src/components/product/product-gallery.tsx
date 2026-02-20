@@ -5,8 +5,10 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Heart } from "lucide-react"
 import { Product } from "@/lib/products"
+import { useWishlist } from "@/contexts/wishlist-context"
 
 export function ProductGallery({ product }: { product: Product }) {
+  const { toggleWishlist, isInWishlist } = useWishlist()
   const [activeImage, setActiveImage] = useState(product.images[0])
   const [isZoomed, setIsZoomed] = useState(false)
 
@@ -39,8 +41,18 @@ export function ProductGallery({ product }: { product: Product }) {
           priority
         />
         <div className="absolute top-4 right-4 z-10">
-            <Button size="icon" variant="ghost" className="rounded-full bg-white/80 hover:bg-white text-neutral-800 shadow-sm backdrop-blur-sm">
-              <Heart className="h-5 w-5" />
+            <Button 
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleWishlist(product);
+              }}
+              size="icon" 
+              variant="ghost" 
+              className={`rounded-full shadow-sm backdrop-blur-sm transition-transform hover:scale-110 ${
+                isInWishlist(product.id) ? 'bg-white text-red-500 hover:text-red-600 hover:bg-white' : 'bg-white/80 hover:bg-white text-neutral-800'
+              }`}
+            >
+              <Heart className={`h-5 w-5 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
             </Button>
         </div>
       </div>

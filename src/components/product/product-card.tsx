@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
@@ -5,8 +7,23 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Heart } from "lucide-react"
 import Link from "next/link"
 import { Product } from "@/lib/products"
+import { useCart } from "@/contexts/cart-context"
+import { useWishlist } from "@/contexts/wishlist-context"
 
 export function ProductCard({ product }: { product: Product }) {
+  const { addToCart } = useCart()
+  const { toggleWishlist, isInWishlist } = useWishlist()
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault()
+    addToCart(product, 1)
+  }
+
+  const handleWishlist = (e: React.MouseEvent) => {
+    e.preventDefault()
+    toggleWishlist(product)
+  }
+
   return (
     <Link href={`/product/${product.slug}`} className="block group">
       <Card className="border-none shadow-none bg-transparent rounded-none overflow-visible h-full">
@@ -37,14 +54,22 @@ export function ProductCard({ product }: { product: Product }) {
             </Badge>
           )}
 
-          <div className="absolute top-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-             <Button size="icon" variant="ghost" className="h-8 w-8 rounded-full bg-white/90 hover:bg-white text-neutral-800 shadow-sm">
-               <Heart className="h-4 w-4" />
+          <div className="absolute top-4 right-4 z-20 transition-opacity duration-300">
+             <Button 
+                onClick={handleWishlist}
+                size="icon" 
+                variant="ghost" 
+                className={`h-8 w-8 rounded-full shadow-sm hover:scale-110 transition-transform ${isInWishlist(product.id) ? 'bg-white text-red-500 opacity-100 hover:text-red-600 hover:bg-white' : 'bg-white/90 text-neutral-800 hover:bg-white opacity-0 group-hover:opacity-100'}`}
+             >
+               <Heart className={`h-4 w-4 ${isInWishlist(product.id) ? 'fill-current' : ''}`} />
              </Button>
           </div>
 
           <div className="absolute inset-x-0 bottom-0 z-20 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/60 to-transparent">
-             <Button className="w-full bg-white text-black hover:bg-neutral-100 backdrop-blur-sm shadow-lg rounded-none h-11 text-xs uppercase tracking-widest font-medium group-hover:delay-75 transition-all">
+             <Button 
+                onClick={handleAddToCart}
+                className="w-full bg-white text-black hover:bg-neutral-100 backdrop-blur-sm shadow-lg rounded-none h-11 text-xs uppercase tracking-widest font-medium group-hover:delay-75 transition-all"
+             >
                Add to Bag — ${product.price}
              </Button>
           </div>
