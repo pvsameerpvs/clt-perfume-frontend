@@ -15,7 +15,8 @@ import {
   ShieldCheck, 
   RotateCcw, 
   CreditCard,
-  Heart
+  Heart,
+  ArrowLeft
 } from "lucide-react"
 
 export function ProductDisplay({ product, relatedProducts }: { product: Product, relatedProducts: Product[] }) {
@@ -37,8 +38,14 @@ export function ProductDisplay({ product, relatedProducts }: { product: Product,
         
         {/* Breadcrumb / Back Link */}
         <div className="mb-8">
-          <Link href="/" className="text-sm text-neutral-500 hover:text-black transition-colors">
-            ← Back to Collection
+          <Link 
+            href="/" 
+            className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-black transition-colors group"
+          >
+            <div className="h-8 w-8 rounded-full bg-neutral-100 flex items-center justify-center group-hover:bg-neutral-200 transition-colors">
+               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            </div>
+            <span className="font-medium tracking-wide uppercase text-xs">Back to Collection</span>
           </Link>
         </div>
 
