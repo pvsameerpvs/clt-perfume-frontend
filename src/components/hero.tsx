@@ -1,57 +1,108 @@
 "use client"
 
+import * as React from "react"
 import Image from "next/image"
+import Autoplay from "embla-carousel-autoplay"
 import { ArrowRight } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
+
+const SLIDES = [
+  {
+    image: "/prfume-bannar.jpeg",
+    alt: "Luxury perfume bottle in dark setting",
+    tagline: "An impression that lingers",
+    headline: "Let Your Scent <br/> Speak First",
+  },
+  {
+    image: "/prfume-bannar2.jpg",
+    alt: "Elegant perfume aesthetic",
+    tagline: "SOPHISTICATION REDEFINED",
+    headline: "Essence of <br/> Pure Luxury",
+  },
+  {
+    image: "/prfume-bannar4.jpg",
+    alt: "Modern fragrance collection",
+    tagline: "TIMELESS ELEGANCE",
+    headline: "Crafted for <br/> The Bold",
+  },
+]
 
 export function Hero() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  )
+
   return (
     <section className="w-full px-4 md:px-6 pb-16">
       <div className="relative h-[70vh] min-h-[500px] w-full overflow-hidden rounded-[2rem] bg-neutral-900 shadow-2xl">
-        
-        {/* Background Image */}
-        <Image
-          src="/prfume-bannar.jpeg"
-          alt="Luxury perfume bottle in dark setting"
-          fill
-          className="object-cover object-bottom"
-          priority
-          sizes="100vw"
-        />
-        
-        {/* Dark Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        <Carousel
+          plugins={[plugin.current]}
+          className="h-full w-full [&>div]:h-full"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+          opts={{
+            loop: true,
+          }}
+        >
+          <CarouselContent className="h-full ml-0">
+            {SLIDES.map((slide, index) => (
+              <CarouselItem key={index} className="relative h-full w-full pl-0">
+                
+                {/* Background Image - Fits Exactly Like Before */}
+                <div className="absolute inset-0 h-full w-full">
+                  <Image
+                    src={slide.image}
+                    alt={slide.alt}
+                    fill
+                    className="object-cover object-bottom"
+                    priority={index === 0}
+                    sizes="100vw"
+                  />
+                  {/* Dark Overlay */}
+                  <div className="absolute inset-0 bg-black/40" />
+                </div>
 
-        {/* Content Container */}
-        <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-16 lg:p-24">
-          
-          {/* Top: Tagline */}
-          <div className="animate-in fade-in slide-in-from-top-4 duration-1000">
-            <span className="inline-block rounded-full border border-white/20 bg-white/10 px-6 py-2 text-sm text-neutral-200 backdrop-blur-md">
-              An impression that lingers
-            </span>
-          </div>
+                {/* Content Container - Flex Layout */}
+                <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-16 lg:p-24">
+                  
+                  {/* Top: Tagline */}
+                  <div className="animate-in fade-in slide-in-from-top-4 duration-1000">
+                    <span className="inline-block rounded-full border border-white/20 bg-white/10 px-6 py-2 text-sm text-neutral-200 backdrop-blur-md">
+                      {slide.tagline}
+                    </span>
+                  </div>
 
-          {/* Center: Main Headline */}
-          <div className="flex animate-in fade-in slide-in-from-left-4 duration-1000 delay-200">
-            <h1 className="max-w-4xl text-5xl font-thin uppercase leading-none tracking-tight text-white md:text-7xl lg:text-8xl">
-              Let Your Scent <br/> Speak First
-            </h1>
-          </div>
+                  {/* Center: Main Headline */}
+                  <div className="flex animate-in fade-in slide-in-from-left-4 duration-1000 delay-200">
+                    <h1 
+                      className="max-w-4xl text-5xl font-thin uppercase leading-none tracking-tight text-white md:text-7xl lg:text-8xl"
+                      dangerouslySetInnerHTML={{ __html: slide.headline }}
+                    />
+                  </div>
 
-          {/* Bottom: Call to Action */}
-          <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-            <Button className="group flex h-14 items-center gap-4 rounded-full bg-white pl-8 pr-2 text-black transition-transform hover:scale-105">
-              <span className="text-sm font-medium tracking-wide">
-                Discover The Scent
-              </span>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-transform group-hover:rotate-[-45deg]">
-                <ArrowRight className="h-4 w-4" />
-              </div>
-            </Button>
-          </div>
+                  {/* Bottom: Call to Action */}
+                  <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
+                    <Button className="group flex h-14 items-center gap-4 rounded-full bg-white pl-8 pr-2 text-black transition-transform hover:scale-105">
+                      <span className="text-sm font-medium tracking-wide">
+                        Discover The Scent
+                      </span>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-transform group-hover:rotate-[-45deg]">
+                        <ArrowRight className="h-4 w-4" />
+                      </div>
+                    </Button>
+                  </div>
 
-        </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   )
