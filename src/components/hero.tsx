@@ -95,7 +95,7 @@ export function Hero() {
 
                   {/* Bottom: Call to Action */}
                   <div className="animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-                    <Button className="group flex h-14 items-center gap-4 rounded-full bg-white pl-8 pr-2 text-black transition-transform hover:scale-105">
+                    <Button className="group flex h-14 items-center gap-4 rounded-full bg-white pl-8 pr-2 text-black transition-all hover:scale-105 hover:bg-neutral-200">
                       <span className="text-sm font-medium tracking-wide">
                         Discover The Scent
                       </span>
