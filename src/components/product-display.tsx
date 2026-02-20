@@ -83,7 +83,7 @@ export function ProductDisplay({ product, relatedProducts }: { product: Product,
                 <button
                   key={idx}
                   onClick={() => setActiveImage(img)}
-                  className={`relative h-24 w-24 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all ${
+                  className={`relative h-20 w-20 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all ${
                     activeImage === img ? 'border-black' : 'border-transparent opacity-70 hover:opacity-100'
                   }`}
                 >
@@ -253,7 +253,7 @@ export function ProductDisplay({ product, relatedProducts }: { product: Product,
         {/* You Might Also Like */}
         <div className="border-t border-neutral-200 pt-16">
           <h2 className="text-3xl font-serif mb-10 text-center">You Might Also Like</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
             {relatedProducts.map((p) => (
               <Link href={`/product/${p.slug}`} key={p.id} className="block group">
                  <div className="bg-neutral-50 aspect-[4/5] relative mb-4 overflow-hidden rounded-sm">

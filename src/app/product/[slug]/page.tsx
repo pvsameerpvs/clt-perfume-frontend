@@ -13,7 +13,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const relatedProducts = products
     .filter((p) => p.id !== product.id)
-    .slice(0, 4)
+    .slice(0, 5)
 
   return <ProductDisplay product={product} relatedProducts={relatedProducts} />
 }

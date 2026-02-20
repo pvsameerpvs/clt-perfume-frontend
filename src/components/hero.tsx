@@ -33,10 +33,10 @@ const SLIDES = [
     headline: "Essence of <br/> Pure Luxury",
   },
   {
-    image: "/prfume-bannar-4.jpg",
+    image: "/prfume-bannar-4.png",
     alt: "Modern fragrance collection",
     tagline: "TIMELESS ELEGANCE",
-    headline: "Crafted for <br/> The Bold",
+    headline: "Ramadan Signature  <br/> Offers",
   },
 ]
 
