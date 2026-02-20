@@ -48,13 +48,7 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-neutral-100 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400">
-          <p>© 2026 CLE Perfumes. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-black">Privacy Policy</a>
-            <a href="#" className="hover:text-black">Terms of Service</a>
-          </div>
-        </div>
+       
       </div>
     </footer>
   )

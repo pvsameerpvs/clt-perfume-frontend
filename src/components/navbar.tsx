@@ -58,7 +58,7 @@ export function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center gap-6 flex-shrink-0 text-neutral-600">
-            <Link href="#" className="flex flex-col items-center gap-1 hover:text-black transition-colors">
+            <Link href="/login" className="flex flex-col items-center gap-1 hover:text-black transition-colors">
               <User className="h-5 w-5" />
               <span className="text-[10px] uppercase tracking-wide">Sign In</span>
             </Link>
