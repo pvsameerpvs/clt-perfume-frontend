@@ -53,7 +53,7 @@ export function CartItem({ item }: { item: { product: any, quantity: number } })
               <Plus className="h-3 w-3" />
             </button>
           </div>
-          <span className="font-medium text-black">${item.product.price * item.quantity}</span>
+          <span className="font-medium text-black">AED {item.product.price * item.quantity}</span>
         </div>
       </div>
     </div>

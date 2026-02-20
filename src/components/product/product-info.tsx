@@ -40,7 +40,7 @@ export function ProductInfo({ product }: { product: Product }) {
           <span className="text-sm text-neutral-500">{product.reviews.length} Reviews</span>
         </div>
 
-        <div className="text-2xl font-light text-neutral-900 mb-6">${product.price}</div>
+        <div className="text-2xl font-light text-neutral-900 mb-6">AED {product.price}</div>
 
         <div className="prose prose-neutral text-neutral-600 font-light mb-8">
           <p>{product.description}</p>
@@ -106,7 +106,7 @@ export function ProductInfo({ product }: { product: Product }) {
             <Truck className="h-5 w-5 text-neutral-400 mt-0.5" />
             <div>
               <div className="font-medium text-neutral-900">Free Delivery</div>
-              <div className="text-neutral-500 text-xs mt-1">On orders over $200</div>
+              <div className="text-neutral-500 text-xs mt-1">On orders over AED 200</div>
             </div>
           </div>
           <div className="flex items-start gap-3">

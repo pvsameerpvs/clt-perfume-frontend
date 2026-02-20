@@ -59,7 +59,7 @@ export default function CartPage() {
               <div className="space-y-4 text-sm font-light text-neutral-600 mb-6">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span className="font-medium text-black">${totalPrice}</span>
+                  <span className="font-medium text-black">AED {totalPrice}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Shipping</span>
@@ -73,7 +73,7 @@ export default function CartPage() {
 
               <div className="flex justify-between items-end border-t border-neutral-100 pt-6 mb-8 text-neutral-900">
                 <span className="font-serif">Total</span>
-                <span className="text-2xl font-serif">${totalPrice}</span>
+                <span className="text-2xl font-serif">AED {totalPrice}</span>
               </div>
 
               <Button className="w-full h-14 rounded-xl bg-black text-white hover:bg-neutral-800 uppercase tracking-widest text-xs font-medium transition-all shadow-lg shadow-black/10">

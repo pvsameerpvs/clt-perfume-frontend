@@ -84,7 +84,7 @@ export function ProductCard({ product }: { product: Product }) {
                 onClick={handleAddToCart}
                 className="w-full bg-white text-black hover:bg-neutral-100 backdrop-blur-sm shadow-lg rounded-none h-11 text-xs uppercase tracking-widest font-medium group-hover:delay-75 transition-all"
              >
-               Add to Bag — ${product.price}
+               Add to Bag — AED {product.price}
              </Button>
           </div>
         </CardContent>
@@ -95,7 +95,7 @@ export function ProductCard({ product }: { product: Product }) {
                 <h3 className="font-serif text-lg text-neutral-900 leading-none group-hover:text-neutral-600 transition-colors">{product.name}</h3>
                 <p className="text-xs text-neutral-500 mt-1 uppercase tracking-wider">{product.scent}</p>
              </div>
-             <span className="font-medium text-sm text-neutral-900 hidden md:block">${product.price}</span>
+             <span className="font-medium text-sm text-neutral-900 hidden md:block">AED {product.price}</span>
           </div>
         </CardFooter>
       </Card>
