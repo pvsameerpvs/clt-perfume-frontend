@@ -22,6 +22,8 @@ export const metadata: Metadata = {
   description: "Discover luxury fragrances crafted for the modern individual.",
 };
 
+import { Toaster } from "@/components/ui/sonner";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,6 +38,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <Toaster position="bottom-right" toastOptions={{ className: 'rounded-none border-neutral-200' }} />
         </Providers>
       </body>
     </html>

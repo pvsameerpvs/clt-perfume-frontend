@@ -13,6 +13,7 @@ import {
   RotateCcw, 
   CreditCard 
 } from "lucide-react"
+import { toast } from "sonner"
 
 import { useCart } from "@/contexts/cart-context"
 
@@ -79,7 +80,16 @@ export function ProductInfo({ product }: { product: Product }) {
 
         <div className="flex flex-col sm:flex-row gap-4">
           <Button 
-            onClick={() => addToCart(product, quantity)}
+            onClick={() => {
+              addToCart(product, quantity)
+              toast.success(`${quantity}x ${product.name} added to bag`, {
+                description: "You can view your bag or continue shopping.",
+                action: {
+                  label: "View Bag",
+                  onClick: () => window.location.href = '/cart'
+                },
+              })
+            }}
             variant="outline" 
             className="h-14 flex-1 rounded-full border-neutral-300 hover:bg-neutral-50 uppercase tracking-widest text-xs font-medium transition-colors"
           >

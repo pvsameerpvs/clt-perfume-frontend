@@ -9,6 +9,7 @@ import Link from "next/link"
 import { Product } from "@/lib/products"
 import { useCart } from "@/contexts/cart-context"
 import { useWishlist } from "@/contexts/wishlist-context"
+import { toast } from "sonner"
 
 export function ProductCard({ product }: { product: Product }) {
   const { addToCart } = useCart()
@@ -17,11 +18,24 @@ export function ProductCard({ product }: { product: Product }) {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault()
     addToCart(product, 1)
+    toast.success(`${product.name} added to bag`, {
+      description: "You can view your bag or continue shopping.",
+      action: {
+        label: "View Bag",
+        onClick: () => window.location.href = '/cart'
+      },
+    })
   }
 
   const handleWishlist = (e: React.MouseEvent) => {
     e.preventDefault()
     toggleWishlist(product)
+    
+    if (isInWishlist(product.id)) {
+      toast(`${product.name} removed from wishlist`)
+    } else {
+      toast.success(`${product.name} added to wishlist`)
+    }
   }
 
   return (

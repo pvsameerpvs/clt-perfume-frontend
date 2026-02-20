@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Heart } from "lucide-react"
 import { Product } from "@/lib/products"
 import { useWishlist } from "@/contexts/wishlist-context"
+import { toast } from "sonner"
 
 export function ProductGallery({ product }: { product: Product }) {
   const { toggleWishlist, isInWishlist } = useWishlist()
@@ -45,6 +46,11 @@ export function ProductGallery({ product }: { product: Product }) {
               onClick={(e) => {
                 e.stopPropagation();
                 toggleWishlist(product);
+                if (isInWishlist(product.id)) {
+                  toast(`${product.name} removed from wishlist`)
+                } else {
+                  toast.success(`${product.name} added to wishlist`)
+                }
               }}
               size="icon" 
               variant="ghost" 
