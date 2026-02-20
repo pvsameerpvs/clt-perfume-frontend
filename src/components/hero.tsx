@@ -14,19 +14,26 @@ import {
 
 const SLIDES = [
   {
-    image: "/prfume-bannar.jpeg",
+    image: "/prfume-bannar-1.jpg",
+    alt: "Luxury perfume bottle in dark setting",
+    tagline: "An impression that lingers",
+    headline: "Let Your Scent <br/> Speak First",
+  },
+
+  {
+    image: "/prfume-bannar-2.jpg",
     alt: "Luxury perfume bottle in dark setting",
     tagline: "An impression that lingers",
     headline: "Let Your Scent <br/> Speak First",
   },
   {
-    image: "/prfume-bannar2.jpg",
+    image: "/prfume-bannar-3.jpg",
     alt: "Elegant perfume aesthetic",
     tagline: "SOPHISTICATION REDEFINED",
     headline: "Essence of <br/> Pure Luxury",
   },
   {
-    image: "/prfume-bannar4.jpg",
+    image: "/prfume-bannar-4.jpg",
     alt: "Modern fragrance collection",
     tagline: "TIMELESS ELEGANCE",
     headline: "Crafted for <br/> The Bold",
