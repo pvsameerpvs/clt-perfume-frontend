@@ -101,7 +101,7 @@ export function Navbar() {
 
       {/* Navigation Links */}
       <div className="border-t border-neutral-100 hidden lg:block">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 relative">
           <ul className="flex items-center justify-center gap-8 md:gap-16 text-xs font-medium tracking-widest uppercase text-neutral-600">
             <li className="py-4">
               <Link href="/offers" className="flex items-center gap-1 text-yellow-600 hover:text-yellow-700 transition-colors">
@@ -109,38 +109,150 @@ export function Navbar() {
                 Exclusive Offers
               </Link>
             </li>
-            <li className="group relative hover:text-black transition-colors cursor-pointer py-4">
+
+            {/* MEN MEGA MENU */}
+            <li className="group hover:text-black transition-colors cursor-pointer py-4">
               <Link href="/collections/mens">Men</Link>
-              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-48 z-50 transform translate-y-2 group-hover:translate-y-0">
-                <div className="flex flex-col p-5 space-y-4">
-                  <Link href="/collections/mens" className="text-xs hover:text-neutral-500 transition-colors">All Men's</Link>
-                  <Link href="/collections/mens" className="text-xs hover:text-neutral-500 transition-colors">Best Sellers</Link>
-                  <Link href="/collections/mens" className="text-xs hover:text-neutral-500 transition-colors">New Arrivals</Link>
+              <div className="absolute top-full left-0 right-0 bg-white text-black shadow-2xl border-t border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0 pb-10 pt-8 px-12">
+                <div className="flex gap-12 w-full max-w-6xl mx-auto">
+                  
+                  {/* Category Column */}
+                  <div className="flex flex-col flex-1">
+                    <h3 className="text-black font-serif text-base tracking-wide uppercase mb-6 drop-shadow-sm">Shop By Category</h3>
+                    <div className="flex flex-col space-y-4">
+                      <Link href="/collections/mens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Men Perfumes</Link>
+                      <Link href="/collections/mens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Best Seller For Men</Link>
+                      <Link href="/collections/mens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Gift Sets For Men</Link>
+                      <Link href="/collections/mens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Arabic Perfume</Link>
+                      <Link href="/collections/mens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Niche Perfumes</Link>
+                      <Link href="/collections/mens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Inspired Perfumes</Link>
+                    </div>
+                  </div>
+
+
+
+                  {/* Notes Column */}
+                  <div className="flex flex-col flex-1">
+                     <h3 className="text-black font-serif text-base tracking-wide uppercase mb-6 drop-shadow-sm">Shop By Notes</h3>
+                     <div className="flex gap-6">
+                        <Link href="/collections/mens" className="flex flex-col items-center gap-3 group/note">
+                           <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg shadow-black/20 group-hover/note:scale-105 transition-transform">
+                              <Image src="https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=300&auto=format&fit=crop" alt="Woody" width={96} height={96} className="object-cover w-full h-full" />
+                           </div>
+                           <span className="text-xs font-medium text-neutral-600 capitalize">Woody</span>
+                        </Link>
+                        <Link href="/collections/mens" className="flex flex-col items-center gap-3 group/note">
+                           <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg shadow-black/20 group-hover/note:scale-105 transition-transform">
+                              <Image src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=300&auto=format&fit=crop" alt="Spicy" width={96} height={96} className="object-cover w-full h-full" />
+                           </div>
+                           <span className="text-xs font-medium text-neutral-600 capitalize">Spicy</span>
+                        </Link>
+                     </div>
+                  </div>
+
+                  {/* Banners Column */}
+                  <div className="flex flex-col gap-4 flex-[1.5]">
+                     <Link href="/collections/mens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
+                        <Image src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop" alt="Men Banner 1" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-black/20 group-hover/banner:bg-black/10 transition-colors"></div>
+                        <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg">NEW ARRIVALS</div>
+                     </Link>
+                     <Link href="/collections/mens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
+                        <Image src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?q=80&w=800&auto=format&fit=crop" alt="Men Banner 2" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-black/40 group-hover/banner:bg-black/20 transition-colors"></div>
+                        <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg opacity-90">SIGNATURE</div>
+                     </Link>
+                     <Link href="/collections/mens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
+                        <Image src="/curated-perfume-men.png" alt="Men Banner 3" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700 grayscale hidden" />
+                        <div className="w-full h-full bg-gradient-to-r from-neutral-800 to-neutral-900 absolute inset-0"></div>
+                        <div className="absolute top-0 right-0 bottom-0 w-1/2 opacity-30 bg-[url('https://images.unsplash.com/photo-1526413232644-8a40f287f287?q=80&w=800&auto=format&fit=crop')] bg-cover mix-blend-overlay"></div>
+                        <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg">CLE ORIGINAL</div>
+                     </Link>
+                  </div>
+
                 </div>
               </div>
             </li>
-            <li className="group relative hover:text-black transition-colors cursor-pointer py-4">
+
+
+            {/* WOMEN MEGA MENU */}
+            <li className="group hover:text-black transition-colors cursor-pointer py-4">
               <Link href="/collections/womens">Women</Link>
-              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-48 z-50 transform translate-y-2 group-hover:translate-y-0">
-                <div className="flex flex-col p-5 space-y-4">
-                  <Link href="/collections/womens" className="text-xs hover:text-neutral-500 transition-colors">All Women's</Link>
-                  <Link href="/collections/womens" className="text-xs hover:text-neutral-500 transition-colors">Best Sellers</Link>
-                  <Link href="/collections/womens" className="text-xs hover:text-neutral-500 transition-colors">New Arrivals</Link>
-                  <Link href="/collections/womens" className="text-xs hover:text-neutral-500 transition-colors">Gift Sets</Link>
+              <div className="absolute top-full left-0 right-0 bg-white text-black shadow-2xl border-t border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0 pb-10 pt-8 px-12">
+                <div className="flex gap-12 w-full max-w-6xl mx-auto">
+                  
+                  {/* Category Column */}
+                  <div className="flex flex-col flex-1">
+                    <h3 className="text-black font-serif text-base tracking-wide uppercase mb-6 drop-shadow-sm">Shop By Category</h3>
+                    <div className="flex flex-col space-y-4">
+                      <Link href="/collections/womens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Women Perfumes</Link>
+                      <Link href="/collections/womens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Best Seller For Women</Link>
+                      <Link href="/collections/womens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Gift Sets For Women</Link>
+                      <Link href="/collections/womens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Cosmetics</Link>
+                      <Link href="/collections/womens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Body Mist</Link>
+                      <Link href="/collections/womens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Arabic Perfume</Link>
+                      <Link href="/collections/womens" className="text-sm font-light text-neutral-500 hover:text-black transition-colors capitalize">Niche Perfumes</Link>
+                    </div>
+                  </div>
+
+
+
+                  {/* Notes Column */}
+                  <div className="flex flex-col flex-1">
+                     <h3 className="text-black font-serif text-base tracking-wide uppercase mb-6 drop-shadow-sm">Shop By Notes</h3>
+                     <div className="flex gap-6">
+                        <Link href="/collections/womens" className="flex flex-col items-center gap-3 group/note">
+                           <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg shadow-red-900/20 group-hover/note:scale-105 transition-transform border border-neutral-100">
+                              <Image src="https://images.unsplash.com/photo-1610832958506-c563cb31e649?q=80&w=300&auto=format&fit=crop" alt="Fruity" width={96} height={96} className="object-cover w-full h-full" />
+                           </div>
+                           <span className="text-xs font-medium text-neutral-600 capitalize">Fruity</span>
+                        </Link>
+                        <Link href="/collections/womens" className="flex flex-col items-center gap-3 group/note">
+                           <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg shadow-pink-900/10 group-hover/note:scale-105 transition-transform border border-neutral-100">
+                              <Image src="https://images.unsplash.com/photo-1490750967868-88cb44cb271c?q=80&w=300&auto=format&fit=crop" alt="Floral" width={96} height={96} className="object-cover w-full h-full" />
+                           </div>
+                           <span className="text-xs font-medium text-neutral-600 capitalize">Floral</span>
+                        </Link>
+                     </div>
+                  </div>
+
+                  {/* Banners Column */}
+                  <div className="flex flex-col gap-4 flex-[1.5]">
+                     <Link href="/collections/womens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
+                        <Image src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop" alt="Best Sellers" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-white/10 group-hover/banner:bg-white/0 transition-colors"></div>
+                        <div className="absolute inset-0 flex items-center px-8 text-black text-2xl font-serif tracking-widest drop-shadow-xl" style={{textShadow: "2px 2px 10px rgba(255,255,255,0.7)"}}>BEST SELLERS</div>
+                     </Link>
+                     <Link href="/collections/womens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
+                        <Image src="https://images.unsplash.com/photo-1588405748880-12d1d2a59a72?q=80&w=800&auto=format&fit=crop" alt="Gift Sets" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-amber-900/40 group-hover/banner:bg-amber-900/20 transition-colors"></div>
+                        <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg">GIFT SETS</div>
+                     </Link>
+                     <Link href="/collections/womens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
+                        <Image src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=800&auto=format&fit=crop" alt="CLE Original" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-yellow-900/40 group-hover/banner:bg-yellow-900/20 transition-colors"></div>
+                        <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg">CLE ORIGINAL</div>
+                     </Link>
+                  </div>
+
                 </div>
               </div>
             </li>
-            <li className="group relative hover:text-black transition-colors cursor-pointer py-4">
+
+
+            <li className="group hover:text-black transition-colors cursor-pointer py-4 relative">
               <Link href="/collections/deals">Best Sets</Link>
-              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-48 z-50 transform translate-y-2 group-hover:translate-y-0">
-                <div className="flex flex-col p-5 space-y-4">
-                  <Link href="/collections/deals" className="text-xs hover:text-neutral-500 transition-colors">View All Sets</Link>
-                  <Link href="/collections/deals" className="text-xs hover:text-neutral-500 transition-colors">Travel Sizes</Link>
-                  <Link href="/collections/deals" className="text-xs hover:text-neutral-500 transition-colors">Discovery Bundles</Link>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-56 z-50 transform translate-y-2 group-hover:translate-y-0">
+                <div className="flex flex-col p-6 space-y-5">
+                  <Link href="/collections/deals" className="text-sm font-light hover:text-neutral-500 transition-colors capitalize">View All Sets</Link>
+                  <Link href="/collections/deals" className="text-sm font-light hover:text-neutral-500 transition-colors capitalize">Travel Sizes</Link>
+                  <Link href="/collections/deals" className="text-sm font-light hover:text-neutral-500 transition-colors capitalize">Discovery Bundles</Link>
+                  <div className="w-full h-px bg-neutral-100 my-2"></div>
+                  <Link href="/collections/deals" className="text-sm font-light text-red-600 hover:text-red-700 transition-colors capitalize">Ramadan Specials</Link>
                 </div>
               </div>
             </li>
-          </ul>
+          </ul> 
         </div>
       </div>
     </header>
