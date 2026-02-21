@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 };
 
 import { Toaster } from "@/components/ui/sonner";
+import { Chatbot } from "@/components/chat-bot";
 
 export default function RootLayout({
   children,
@@ -31,14 +32,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
-      <body className="antialiased font-sans bg-white text-black min-h-screen flex flex-col">
+      <body className="antialiased font-sans bg-white text-black min-h-screen flex flex-col relative">
         <Providers>
           <Navbar />
           <main className="flex-grow">
             {children}
           </main>
           <Footer />
-          <Toaster 
+          <Chatbot />
+          <Toaster  
             position="bottom-right" 
             toastOptions={{ 
               classNames: {
