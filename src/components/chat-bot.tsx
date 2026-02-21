@@ -61,20 +61,10 @@ export function Chatbot() {
 
   return (
     <>
-      {/* Floating Action Button */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 p-4 bg-black text-white shadow-xl hover:scale-110 transition-transform duration-300 ${isOpen ? 'scale-0 opacity-0 pointer-events-none' : 'scale-100 opacity-100'}`}
-        style={{ borderRadius: '50%' }}
-        aria-label="Open chat"
-      >
-        <MessageCircle className="w-6 h-6" />
-      </button>
-
       {/* Chat Window Popup */}
       <div 
-        className={`fixed bottom-6 right-6 z-50 w-[380px] h-[600px] max-h-[85vh] bg-white shadow-2xl overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-right border border-neutral-200 ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
-        style={{ borderRadius: '1rem' }}
+        className={`fixed bottom-[100px] right-6 z-50 w-[340px] h-[520px] max-h-[75vh] bg-white shadow-[0_10px_40px_rgba(0,0,0,0.15)] overflow-hidden flex flex-col transition-all duration-300 transform origin-bottom-right border border-neutral-200 ${isOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-8 pointer-events-none'}`}
+        style={{ borderRadius: '1.25rem' }}
       >
         {/* Header Content */}
         <div className="bg-black text-white p-4 flex justify-between items-center shrink-0">
@@ -83,8 +73,8 @@ export function Chatbot() {
               <MessageCircle className="w-4 h-4 text-white" />
             </div>
             <div>
-              <h3 className="font-serif text-sm font-medium tracking-wide">CLE Consultant</h3>
-              <p className="text-[10px] text-neutral-300">Typically replies immediately</p>
+              <h3 className="font-serif text-[15px] font-medium tracking-wide">CLE Consultant</h3>
+              <p className="text-[10px] text-neutral-300 mt-0.5">Typically replies immediately</p>
             </div>
           </div>
           <button 
@@ -101,7 +91,7 @@ export function Chatbot() {
           {messages.map((msg) => (
             <div key={msg.id} className={`flex ${msg.isBot ? 'justify-start' : 'justify-end'}`}>
               <div 
-                className={`max-w-[85%] p-3 rounded-2xl text-[13px] leading-relaxed ${
+                className={`max-w-[85%] p-3.5 rounded-2xl text-[13px] leading-relaxed ${
                   msg.isBot 
                     ? 'bg-white border border-neutral-100 text-neutral-800 rounded-tl-sm shadow-sm' 
                     : 'bg-black text-white rounded-tr-sm'
@@ -129,19 +119,45 @@ export function Chatbot() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Message CLE Consultant..."
-              className="w-full bg-neutral-50 border border-neutral-200 rounded-full pl-5 pr-12 py-3 text-[13px] focus:outline-none focus:ring-1 focus:ring-black transition-all"
+              className="w-full bg-neutral-50 border border-neutral-200 rounded-full pl-5 pr-12 py-3.5 text-[13px] focus:outline-none focus:ring-1 focus:ring-black transition-all"
               disabled={isLoading}
             />
             <button 
               type="submit"
               disabled={!input.trim() || isLoading}
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center disabled:opacity-50 disabled:bg-neutral-300 transition-all hover:scale-105"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 bg-black text-white rounded-full flex items-center justify-center disabled:opacity-50 disabled:bg-neutral-300 transition-all hover:scale-105"
             >
-              <Send className="w-3.5 h-3.5 ml-[1px]" />
+              <Send className="w-4 h-4 ml-[1px]" />
             </button>
           </div>
         </form>
       </div>
+
+      {/* Premium Floating Action Button */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className={`fixed bottom-6 right-6 z-50 flex items-center justify-center transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.2)] hover:shadow-[0_10px_50px_rgba(0,0,0,0.3)] hover:-translate-y-1 focus:outline-none group overflow-hidden ${
+          isOpen 
+            ? 'w-[60px] h-[60px] rounded-full bg-white text-black border border-neutral-200' 
+            : 'h-[60px] px-8 rounded-full bg-black text-white border border-white/10 gap-3'
+        }`}
+        aria-label="Toggle chat"
+      >
+        {isOpen ? (
+          <X className="w-6 h-6 transition-transform duration-500 group-hover:rotate-90" strokeWidth={1.5} />
+        ) : (
+          <>
+            <div className="relative flex items-center justify-center">
+              <MessageCircle className="w-5 h-5 transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+              <span className="absolute -top-[2px] -right-[2px] flex h-2 w-2">
+                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+            </div>
+            <span className="font-serif text-xs font-bold tracking-[0.2em] relative top-[1px] uppercase">Consultant</span>
+          </>
+        )}
+      </button>
     </>
   )
 }
