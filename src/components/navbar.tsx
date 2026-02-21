@@ -10,7 +10,6 @@ import {
   Heart, 
   ShoppingBag, 
   Search, 
-  MapPin, 
   Zap,
   Globe 
 } from "lucide-react"
@@ -95,13 +94,6 @@ export function Navbar() {
               <span className="text-[10px] uppercase tracking-wide">My Bag</span>
             </Link>
 
-            <div className="h-8 w-px bg-neutral-200 mx-2 hidden sm:block"></div>
-
-            <Link href="#" className="flex flex-col items-center gap-1 text-green-600 hover:text-green-700 transition-colors">
-              <MapPin className="h-5 w-5" />
-              <span className="text-[10px] uppercase tracking-wide">Find Store</span>
-            </Link>
-
             
           </div>
         </div>
@@ -110,21 +102,16 @@ export function Navbar() {
       {/* Navigation Links */}
       <div className="border-t border-neutral-100 hidden lg:block">
         <div className="container mx-auto px-4">
-          <ul className="flex items-center justify-between py-4 text-xs font-medium tracking-widest uppercase text-neutral-600">
+          <ul className="flex items-center justify-center gap-8 md:gap-16 py-4 text-xs font-medium tracking-widest uppercase text-neutral-600">
             <li>
-              <Link href="#" className="flex items-center gap-1 text-yellow-600 hover:text-yellow-700">
+              <Link href="/offers" className="flex items-center gap-1 text-yellow-600 hover:text-yellow-700 transition-colors">
                 <Zap className="h-4 w-4 fill-current" />
-                Special Deals
+                Exclusive Offers
               </Link>
             </li>
-            <li className="hover:text-black cursor-pointer"><Link href="#">Men</Link></li>
-            <li className="hover:text-black cursor-pointer"><Link href="#">Women</Link></li>
-            <li className="hover:text-black cursor-pointer"><Link href="#">Shop By Brands</Link></li>
-            <li className="hover:text-black cursor-pointer"><Link href="#">Best Sellers</Link></li>
-            <li className="hover:text-black cursor-pointer"><Link href="#">Accessories</Link></li>
-            <li className="hover:text-black cursor-pointer"><Link href="#">Home & Body Care</Link></li>
-            <li className="hover:text-black cursor-pointer"><Link href="#">Inspired Creations</Link></li>
-            <li className="hover:text-black cursor-pointer"><Link href="#">Fragrance Oils</Link></li>
+            <li className="hover:text-black transition-colors cursor-pointer"><Link href="/collections/mens">Men</Link></li>
+            <li className="hover:text-black transition-colors cursor-pointer"><Link href="/collections/womens">Women</Link></li>
+            <li className="hover:text-black transition-colors cursor-pointer"><Link href="/collections/deals">Best Sets</Link></li>
           </ul>
         </div>
       </div>
