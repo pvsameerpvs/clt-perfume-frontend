@@ -1,6 +1,7 @@
 
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useCart } from "@/contexts/cart-context"
@@ -11,7 +12,10 @@ import {
   ShoppingBag, 
   Search, 
   Zap,
-  Globe 
+  Globe,
+  Menu,
+  X,
+  ChevronRight
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -20,6 +24,8 @@ import { Badge } from "@/components/ui/badge"
 export function Navbar() {
   const { totalItems } = useCart()
   const { items: wishlistItems } = useWishlist()
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeMobileMenu, setActiveMobileMenu] = useState<'main' | 'mens' | 'womens'>('main')
 
   return (
     <header className="w-full bg-white z-50 relative">
@@ -41,19 +47,28 @@ export function Navbar() {
       </div>
 
       {/* Main Header */}
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div className="container mx-auto px-4 py-4 md:py-6">
+        <div className="flex items-center justify-between gap-4 md:gap-6">
           
+          {/* Mobile Menu Icon */}
+          <button 
+            className="lg:hidden p-2 -ml-2 text-neutral-600 hover:text-black"
+            onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Open menu"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0 flex-1 lg:flex-none flex justify-center lg:justify-start">
             <div className="flex flex-col items-center">
-               <Image src="/perfume-sam.png" alt="CLE Perfumes" width={100} height={40} className="object-contain w-auto h-10" priority />
-           <span className="text-[10px] tracking-[0.3em] uppercase mt-1">Perfumes</span>
+               <Image src="/perfume-sam.png" alt="CLE Perfumes" width={100} height={40} className="object-contain w-auto h-8 md:h-10" priority />
+               <span className="text-[8px] md:text-[10px] tracking-[0.3em] uppercase mt-1">Perfumes</span>
             </div>
           </Link>
 
-          {/* Search Bar */}
-          <div className="flex-1 w-full max-w-2xl relative">
+          {/* Search Bar (Desktop Only) */}
+          <div className="hidden lg:flex flex-1 w-full max-w-2xl relative">
             <Input 
               type="search" 
               placeholder="Search for product or brand" 
@@ -63,39 +78,46 @@ export function Navbar() {
           </div>
 
           {/* Actions */}
-        {/* Actions */}
-          <div className="flex items-center gap-6 flex-shrink-0 text-neutral-600">
-            <Link href="/login" className="flex flex-col items-center gap-1 hover:text-black transition-colors">
+          <div className="flex items-center gap-4 md:gap-6 flex-shrink-0 text-neutral-600">
+            <Link href="/login" className="hidden lg:flex flex-col items-center gap-1 hover:text-black transition-colors">
               <User className="h-5 w-5" />
               <span className="text-[10px] uppercase tracking-wide">Sign In</span>
             </Link>
 
             <Link href="/wishlist" className="flex flex-col items-center gap-1 hover:text-black transition-colors relative">
               <div className="relative">
-                <Heart className="h-5 w-5" />
+                <Heart className="h-5 w-5 md:h-5 md:w-5" />
                 {wishlistItems.length > 0 && (
-                  <Badge className="absolute -top-1 -right-1 h-3 w-3 p-0 flex items-center justify-center bg-black text-white rounded-full text-[8px] border border-white">
+                  <Badge className="absolute -top-1.5 -right-1.5 md:-top-1 md:-right-1 h-3.5 w-3.5 md:h-3 md:w-3 p-0 flex items-center justify-center bg-black text-white rounded-full text-[9px] md:text-[8px] border border-white">
                     {wishlistItems.length}
                   </Badge>
                 )}
               </div>
-              <span className="text-[10px] uppercase tracking-wide">Wishlist</span>
+              <span className="hidden lg:block text-[10px] uppercase tracking-wide">Wishlist</span>
             </Link>
 
             <Link href="/cart" className="flex flex-col items-center gap-1 hover:text-black transition-colors relative">
               <div className="relative">
-                <ShoppingBag className="h-5 w-5" />
+                <ShoppingBag className="h-5 w-5 md:h-5 md:w-5" />
                 {totalItems > 0 && (
-                  <Badge className="absolute -top-1 -right-1 h-3 w-3 p-0 flex items-center justify-center bg-black text-white rounded-full text-[8px] border border-white">
+                  <Badge className="absolute -top-1.5 -right-1.5 md:-top-1 md:-right-1 h-3.5 w-3.5 md:h-3 md:w-3 p-0 flex items-center justify-center bg-black text-white rounded-full text-[9px] md:text-[8px] border border-white">
                     {totalItems}
                   </Badge>
                 )}
               </div>
-              <span className="text-[10px] uppercase tracking-wide">My Bag</span>
+              <span className="hidden lg:block text-[10px] uppercase tracking-wide">My Bag</span>
             </Link>
-
-            
           </div>
+        </div>
+        
+        {/* Mobile Search Bar - Shown below logo on mobile */}
+        <div className="lg:hidden mt-4 relative w-full">
+           <Input 
+             type="search" 
+             placeholder="Search for product or brand" 
+             className="w-full rounded-full pl-5 pr-10 h-10 border-neutral-300 focus-visible:ring-black/5 text-sm font-light bg-neutral-50"
+           />
+           <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400 h-4 w-4" />
         </div>
       </div>
 
@@ -277,6 +299,116 @@ export function Navbar() {
               </div>
             </li>
           </ul> 
+        </div>
+      </div>
+
+      {/* Mobile Offcanvas Menu */}
+      <div 
+        className={`fixed inset-0 bg-black/50 z-[100] lg:hidden transition-opacity duration-300 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      ></div>
+
+      <div 
+        className={`fixed top-0 left-0 bottom-0 w-[85vw] max-w-sm bg-white z-[101] lg:hidden flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+      >
+        {/* Mobile Header Menu */}
+        <div className="flex items-center justify-between p-5 border-b border-neutral-100">
+          <button 
+            onClick={() => setActiveMobileMenu('main')}
+            className={`flex items-center gap-2 text-sm text-neutral-500 font-medium ${activeMobileMenu === 'main' ? 'invisible' : 'visible'}`}
+          >
+             <ChevronRight className="w-4 h-4 rotate-180" /> Back
+          </button>
+          
+          <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 -mr-2 text-neutral-400 hover:text-black rounded-full hover:bg-neutral-50">
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Mobile Menu Content Container */}
+        <div className="flex-1 overflow-y-auto w-full">
+          
+          {/* Main Mobile Menu */}
+          <div className={`w-full flex flex-col p-6 ${activeMobileMenu === 'main' ? 'block animate-in fade-in slide-in-from-left-4 duration-300' : 'hidden'}`}>
+            <div className="flex flex-col gap-6">
+              <button 
+                onClick={() => setActiveMobileMenu('mens')}
+                className="flex items-center justify-between py-2 text-base font-serif uppercase tracking-widest border-b border-neutral-100 pb-4"
+              >
+                Men
+                <ChevronRight className="w-5 h-5 text-neutral-400" />
+              </button>
+              
+              <button 
+                onClick={() => setActiveMobileMenu('womens')}
+                className="flex items-center justify-between py-2 text-base font-serif uppercase tracking-widest border-b border-neutral-100 pb-4"
+              >
+                Women
+                <ChevronRight className="w-5 h-5 text-neutral-400" />
+              </button>
+              
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/deals" className="py-2 text-base font-serif uppercase tracking-widest border-b border-neutral-100 pb-4">
+                Best Sets
+              </Link>
+              
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/offers" className="py-2 text-base font-serif uppercase tracking-widest border-b border-neutral-100 pb-4 text-yellow-600 flex items-center gap-2">
+                <Zap className="w-4 h-4 fill-current" /> Exclusive Offers
+              </Link>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-neutral-100 space-y-6 pb-24">
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/login" className="flex items-center gap-3 text-sm uppercase tracking-wider text-neutral-700">
+                <User className="w-5 h-5" /> Sign In / Register
+              </Link>
+            </div>
+          </div>
+
+          {/* Men's Submenu */}
+          <div className={`w-full flex flex-col p-6 ${activeMobileMenu === 'mens' ? 'block animate-in fade-in slide-in-from-right-4 duration-300' : 'hidden'}`}>
+            <h3 className="font-serif text-xl tracking-widest uppercase mb-8 pb-4 border-b border-neutral-100">Men</h3>
+            
+            <div className="space-y-5">
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/mens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Men Perfumes</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/mens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Best Seller For Men</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/mens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Gift Sets For Men</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/mens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Arabic Perfume</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/mens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Niche Perfumes</Link>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-neutral-100 pb-24">
+              <h4 className="text-xs font-semibold text-neutral-400 uppercase tracking-[0.2em] mb-4">Featured</h4>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/mens" className="block aspect-[21/9] min-h-[120px] w-full relative rounded-lg overflow-hidden group">
+                 <Image src="/Philosophy.png" alt="Men's Collection" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <span className="text-white font-serif tracking-widest uppercase drop-shadow-md">New Arrivals</span>
+                 </div>
+              </Link>
+            </div>
+          </div>
+
+          {/* Women's Submenu */}
+          <div className={`w-full flex flex-col p-6 ${activeMobileMenu === 'womens' ? 'block animate-in fade-in slide-in-from-right-4 duration-300' : 'hidden'}`}>
+            <h3 className="font-serif text-xl tracking-widest uppercase mb-8 pb-4 border-b border-neutral-100">Women</h3>
+            
+            <div className="space-y-5">
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/womens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Women Perfumes</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/womens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Best Seller For Women</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/womens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Gift Sets For Women</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/womens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Cosmetics</Link>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/womens" className="block text-sm text-neutral-600 uppercase tracking-wider py-1">Arabic Perfume</Link>
+            </div>
+
+            <div className="mt-8 pt-8 border-t border-neutral-100 pb-24">
+              <h4 className="text-xs font-semibold text-neutral-400 uppercase tracking-[0.2em] mb-4">Featured</h4>
+              <Link onClick={() => setIsMobileMenuOpen(false)} href="/collections/womens" className="block aspect-[21/9] min-h-[120px] w-full relative rounded-lg overflow-hidden group">
+                 <Image src="/prfume-bannar-4.png" alt="Women's Collection" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                 <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                    <span className="text-white font-serif tracking-widest uppercase drop-shadow-md">Gift Sets</span>
+                 </div>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </div>
     </header>

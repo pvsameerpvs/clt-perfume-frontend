@@ -73,7 +73,7 @@ export function Chatbot() {
               <MessageCircle className="w-4 h-4 text-white" />
             </div>
             <div>
-              <h3 className="font-serif text-[15px] font-medium tracking-wide">CLE Consultant</h3>
+              <h3 className="font-serif text-[15px] font-medium tracking-wide">Ask CLE</h3>
               <p className="text-[10px] text-neutral-300 mt-0.5">Typically replies immediately</p>
             </div>
           </div>
@@ -154,7 +154,7 @@ export function Chatbot() {
                  <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
             </div>
-            <span className="font-serif text-xs font-bold tracking-[0.2em] relative top-[1px] uppercase">Consultant</span>
+            <span className="font-serif text-xs font-bold tracking-[0.2em] relative top-[1px] uppercase">Ask CLE</span>
           </>
         )}
       </button>
