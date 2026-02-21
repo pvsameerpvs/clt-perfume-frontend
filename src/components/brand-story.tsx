@@ -7,7 +7,7 @@ export function BrandStory() {
     <section className="py-24 bg-neutral-900 text-white overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-[3/4] md:aspect-square w-full">
+          <div className="relative aspect-[3/4] md:aspect-square w-full rounded-2xl overflow-hidden">
             <Image
               src="/Philosophy.png"
               alt="Perfume bottle on dark stone"
