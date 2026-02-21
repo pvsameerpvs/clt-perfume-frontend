@@ -102,16 +102,44 @@ export function Navbar() {
       {/* Navigation Links */}
       <div className="border-t border-neutral-100 hidden lg:block">
         <div className="container mx-auto px-4">
-          <ul className="flex items-center justify-center gap-8 md:gap-16 py-4 text-xs font-medium tracking-widest uppercase text-neutral-600">
-            <li>
+          <ul className="flex items-center justify-center gap-8 md:gap-16 text-xs font-medium tracking-widest uppercase text-neutral-600">
+            <li className="py-4">
               <Link href="/offers" className="flex items-center gap-1 text-yellow-600 hover:text-yellow-700 transition-colors">
                 <Zap className="h-4 w-4 fill-current" />
                 Exclusive Offers
               </Link>
             </li>
-            <li className="hover:text-black transition-colors cursor-pointer"><Link href="/collections/mens">Men</Link></li>
-            <li className="hover:text-black transition-colors cursor-pointer"><Link href="/collections/womens">Women</Link></li>
-            <li className="hover:text-black transition-colors cursor-pointer"><Link href="/collections/deals">Best Sets</Link></li>
+            <li className="group relative hover:text-black transition-colors cursor-pointer py-4">
+              <Link href="/collections/mens">Men</Link>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-48 z-50 transform translate-y-2 group-hover:translate-y-0">
+                <div className="flex flex-col p-5 space-y-4">
+                  <Link href="/collections/mens" className="text-xs hover:text-neutral-500 transition-colors">All Men's</Link>
+                  <Link href="/collections/mens" className="text-xs hover:text-neutral-500 transition-colors">Best Sellers</Link>
+                  <Link href="/collections/mens" className="text-xs hover:text-neutral-500 transition-colors">New Arrivals</Link>
+                </div>
+              </div>
+            </li>
+            <li className="group relative hover:text-black transition-colors cursor-pointer py-4">
+              <Link href="/collections/womens">Women</Link>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-48 z-50 transform translate-y-2 group-hover:translate-y-0">
+                <div className="flex flex-col p-5 space-y-4">
+                  <Link href="/collections/womens" className="text-xs hover:text-neutral-500 transition-colors">All Women's</Link>
+                  <Link href="/collections/womens" className="text-xs hover:text-neutral-500 transition-colors">Best Sellers</Link>
+                  <Link href="/collections/womens" className="text-xs hover:text-neutral-500 transition-colors">New Arrivals</Link>
+                  <Link href="/collections/womens" className="text-xs hover:text-neutral-500 transition-colors">Gift Sets</Link>
+                </div>
+              </div>
+            </li>
+            <li className="group relative hover:text-black transition-colors cursor-pointer py-4">
+              <Link href="/collections/deals">Best Sets</Link>
+              <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white text-black shadow-xl border border-neutral-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 w-48 z-50 transform translate-y-2 group-hover:translate-y-0">
+                <div className="flex flex-col p-5 space-y-4">
+                  <Link href="/collections/deals" className="text-xs hover:text-neutral-500 transition-colors">View All Sets</Link>
+                  <Link href="/collections/deals" className="text-xs hover:text-neutral-500 transition-colors">Travel Sizes</Link>
+                  <Link href="/collections/deals" className="text-xs hover:text-neutral-500 transition-colors">Discovery Bundles</Link>
+                </div>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
