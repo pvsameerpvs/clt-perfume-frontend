@@ -1,67 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
-import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Gift, PenTool, Sparkles } from "lucide-react"
-
+import { ArrowLeft, Gift } from "lucide-react"
 import { products } from "@/lib/products"
 import { ProductCard } from "@/components/product/product-card"
 
-// Offer Data
-const offersData = {
-  "signature-sets": {
-    title: "Signature Sets",
-    subtitle: "Curated collections of our finest scents, beautifully bundled and packaged.",
-    icon: <Gift className="h-12 w-12 text-neutral-400 mb-6" />,
-    image: "/Philosophy.png",
-    details: [
-      "Select any 3 full-size fragrances and receive a bespoke leather traveler case.",
-      "Each set is hand-packaged with our signature black ribbon and a personalized card.",
-      "Discover complementary notes perfectly matched by our master perfumers."
-    ],
-    action: "Shop Sets Now",
-    bgColor: "bg-[#F3F0EA]", // Matches the card
-  },
-  "personal-engraving": {
-    title: "Personal Engraving",
-    subtitle: "Add a personalized engraving to your bottle, available on all 100ml flacons.",
-    icon: <PenTool className="h-12 w-12 text-neutral-400 mb-6" />,
-    image: "/prfume-bannar5.jpg",
-    details: [
-      "Crafted by our master artisan engravers directly into the glass flacon.",
-      "Choose from three elegant typography styles: serif, cursive, or modern standard.",
-      "Maximum of 12 characters. Perfect for gifting or immortalizing a special date."
-    ],
-    action: "Explore Engraving",
-    bgColor: "bg-[#EBEFF5]", // Matches the card
-  },
-  "complimentary-samples": {
-    title: "Complimentary Samples",
-    subtitle: "Receive two complimentary luxury miniatures with every online order.",
-    icon: <Sparkles className="h-12 w-12 text-neutral-400 mb-6" />,
-    image: "/prfume-bannar4.jpg",
-    details: [
-      "Experience our latest releases before anyone else.",
-      "Each miniature comes in a beautiful 5ml spray vial perfectly sized for travel.",
-      "Select your preferred fragrance families during checkout."
-    ],
-    action: "Shop the Collection",
-    bgColor: "bg-[#F5EBEB]", // Matches the card
-  }
-}
-
-export default async function OfferPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const offer = offersData[slug as keyof typeof offersData];
-
-  if (!offer) {
-    notFound();
-  }
-
+export default function SignatureSetsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header Banner */}
-      <div className={`${offer.bgColor} py-24 relative overflow-hidden flex items-center justify-center`}>
+      <div className="bg-[#F3F0EA] py-24 relative overflow-hidden flex items-center justify-center">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-10 mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         
@@ -71,12 +19,12 @@ export default async function OfferPage({ params }: { params: Promise<{ slug: st
           </Link>
 
           <div className="max-w-3xl">
-            {offer.icon}
+            <Gift className="h-12 w-12 text-neutral-400 mb-6" />
             <h1 className="text-5xl md:text-7xl font-serif font-light text-neutral-900 mb-6 leading-tight">
-              {offer.title}
+              Signature Sets
             </h1>
             <p className="text-xl md:text-2xl font-light text-neutral-600 leading-relaxed max-w-xl">
-              {offer.subtitle}
+              Curated collections of our finest scents, beautifully bundled and packaged.
             </p>
           </div>
         </div>
@@ -88,8 +36,8 @@ export default async function OfferPage({ params }: { params: Promise<{ slug: st
           {/* Image Pane */}
           <div className="relative aspect-[4/5] w-full max-h-[800px] overflow-hidden shadow-2xl bg-neutral-100">
              <Image 
-               src={offer.image}
-               alt={offer.title}
+               src="/Philosophy.png"
+               alt="Signature Sets"
                fill
                className="object-cover scale-105 hover:scale-110 transition-transform duration-1000 grayscale hover:grayscale-0"
                priority
@@ -105,19 +53,29 @@ export default async function OfferPage({ params }: { params: Promise<{ slug: st
             </div>
             
             <ul className="space-y-8">
-              {offer.details.map((detail, idx) => (
-                <li key={idx} className="flex items-start gap-6">
-                  <span className="text-sm font-serif italic text-neutral-400 shrink-0 mt-1">0{idx + 1}</span>
-                  <p className="text-neutral-600 font-light leading-relaxed text-lg">
-                    {detail}
-                  </p>
-                </li>
-              ))}
+              <li className="flex items-start gap-6">
+                <span className="text-sm font-serif italic text-neutral-400 shrink-0 mt-1">01</span>
+                <p className="text-neutral-600 font-light leading-relaxed text-lg">
+                  Select any 3 full-size fragrances and receive a bespoke leather traveler case.
+                </p>
+              </li>
+              <li className="flex items-start gap-6">
+                <span className="text-sm font-serif italic text-neutral-400 shrink-0 mt-1">02</span>
+                <p className="text-neutral-600 font-light leading-relaxed text-lg">
+                  Each set is hand-packaged with our signature black ribbon and a personalized card.
+                </p>
+              </li>
+              <li className="flex items-start gap-6">
+                <span className="text-sm font-serif italic text-neutral-400 shrink-0 mt-1">03</span>
+                <p className="text-neutral-600 font-light leading-relaxed text-lg">
+                  Discover complementary notes perfectly matched by our master perfumers.
+                </p>
+              </li>
             </ul>
 
             <div className="pt-8 border-t border-neutral-100">
               <Button className="h-16 px-10 rounded-none bg-black text-white hover:bg-neutral-800 uppercase tracking-widest text-sm font-medium transition-all w-full sm:w-auto">
-                {offer.action}
+                Shop Sets Now
               </Button>
             </div>
           </div>

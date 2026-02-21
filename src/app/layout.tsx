@@ -38,7 +38,17 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <Toaster position="bottom-right" toastOptions={{ className: 'rounded-none border-neutral-200' }} />
+          <Toaster 
+            position="bottom-right" 
+            toastOptions={{ 
+              classNames: {
+                toast: '!bg-black !text-white !rounded-none !border-black p-4 border',
+                title: 'text-white font-serif tracking-wide text-base',
+                description: '!text-neutral-400 mt-1',
+                actionButton: '!bg-white !text-black rounded-none uppercase tracking-widest text-[10px] font-bold px-3 py-4 hover:bg-neutral-200'
+              }
+            }} 
+          />
         </Providers>
       </body>
     </html>

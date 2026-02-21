@@ -134,18 +134,30 @@ export function Navbar() {
                   {/* Notes Column */}
                   <div className="flex flex-col flex-1">
                      <h3 className="text-black font-serif text-base tracking-wide uppercase mb-6 drop-shadow-sm">Shop By Notes</h3>
-                     <div className="flex gap-6">
+                     <div className="grid grid-cols-2 gap-6 w-full max-w-[220px]">
                         <Link href="/collections/mens" className="flex flex-col items-center gap-3 group/note">
-                           <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg shadow-black/20 group-hover/note:scale-105 transition-transform">
-                              <Image src="https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=300&auto=format&fit=crop" alt="Woody" width={96} height={96} className="object-cover w-full h-full" />
+                           <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg shadow-black/20 group-hover/note:scale-105 transition-transform">
+                              <Image src="/prfume-bannar-2.jpg" alt="Woody" width={80} height={80} className="object-cover w-full h-full" />
                            </div>
                            <span className="text-xs font-medium text-neutral-600 capitalize">Woody</span>
                         </Link>
                         <Link href="/collections/mens" className="flex flex-col items-center gap-3 group/note">
-                           <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg shadow-black/20 group-hover/note:scale-105 transition-transform">
-                              <Image src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=300&auto=format&fit=crop" alt="Spicy" width={96} height={96} className="object-cover w-full h-full" />
+                           <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg shadow-black/20 group-hover/note:scale-105 transition-transform">
+                              <Image src="/prfume-bannar-4.png" alt="Spicy" width={80} height={80} className="object-cover w-full h-full" />
                            </div>
                            <span className="text-xs font-medium text-neutral-600 capitalize">Spicy</span>
+                        </Link>
+                        <Link href="/collections/mens" className="flex flex-col items-center gap-3 group/note">
+                           <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg shadow-black/20 group-hover/note:scale-105 transition-transform">
+                              <Image src="/perfume/midnight-perfume1.png" alt="Fresh" width={80} height={80} className="object-cover w-full h-full" />
+                           </div>
+                           <span className="text-xs font-medium text-neutral-600 capitalize">Fresh</span>
+                        </Link>
+                        <Link href="/collections/mens" className="flex flex-col items-center gap-3 group/note">
+                           <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg shadow-black/20 group-hover/note:scale-105 transition-transform">
+                              <Image src="/perfume/noir-perfume1.png" alt="Citrus" width={80} height={80} className="object-cover w-full h-full bg-neutral-100" />
+                           </div>
+                           <span className="text-xs font-medium text-neutral-600 capitalize">Citrus</span>
                         </Link>
                      </div>
                   </div>
@@ -153,19 +165,19 @@ export function Navbar() {
                   {/* Banners Column */}
                   <div className="flex flex-col gap-4 flex-[1.5]">
                      <Link href="/collections/mens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
-                        <Image src="https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=800&auto=format&fit=crop" alt="Men Banner 1" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <Image src="/Philosophy.png" alt="Men Banner 1" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-black/20 group-hover/banner:bg-black/10 transition-colors"></div>
                         <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg">NEW ARRIVALS</div>
                      </Link>
                      <Link href="/collections/mens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
-                        <Image src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?q=80&w=800&auto=format&fit=crop" alt="Men Banner 2" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <Image src="/prfume-bannar-1.jpg" alt="Men Banner 2" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-black/40 group-hover/banner:bg-black/20 transition-colors"></div>
                         <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg opacity-90">SIGNATURE</div>
                      </Link>
                      <Link href="/collections/mens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
                         <Image src="/curated-perfume-men.png" alt="Men Banner 3" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700 grayscale hidden" />
                         <div className="w-full h-full bg-gradient-to-r from-neutral-800 to-neutral-900 absolute inset-0"></div>
-                        <div className="absolute top-0 right-0 bottom-0 w-1/2 opacity-30 bg-[url('https://images.unsplash.com/photo-1526413232644-8a40f287f287?q=80&w=800&auto=format&fit=crop')] bg-cover mix-blend-overlay"></div>
+                        <div className="absolute top-0 right-0 bottom-0 w-1/2 opacity-30 bg-[url('/prfume-bannar-2.jpg')] bg-cover mix-blend-overlay"></div>
                         <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg">CLE ORIGINAL</div>
                      </Link>
                   </div>
@@ -200,18 +212,30 @@ export function Navbar() {
                   {/* Notes Column */}
                   <div className="flex flex-col flex-1">
                      <h3 className="text-black font-serif text-base tracking-wide uppercase mb-6 drop-shadow-sm">Shop By Notes</h3>
-                     <div className="flex gap-6">
+                     <div className="grid grid-cols-2 gap-6 w-full max-w-[220px]">
                         <Link href="/collections/womens" className="flex flex-col items-center gap-3 group/note">
-                           <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg shadow-red-900/20 group-hover/note:scale-105 transition-transform border border-neutral-100">
-                              <Image src="https://images.unsplash.com/photo-1610832958506-c563cb31e649?q=80&w=300&auto=format&fit=crop" alt="Fruity" width={96} height={96} className="object-cover w-full h-full" />
+                           <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg shadow-red-900/20 group-hover/note:scale-105 transition-transform border border-neutral-100">
+                              <Image src="/prfume-bannar-3.jpg" alt="Fruity" width={80} height={80} className="object-cover w-full h-full" />
                            </div>
                            <span className="text-xs font-medium text-neutral-600 capitalize">Fruity</span>
                         </Link>
                         <Link href="/collections/womens" className="flex flex-col items-center gap-3 group/note">
-                           <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg shadow-pink-900/10 group-hover/note:scale-105 transition-transform border border-neutral-100">
-                              <Image src="https://images.unsplash.com/photo-1490750967868-88cb44cb271c?q=80&w=300&auto=format&fit=crop" alt="Floral" width={96} height={96} className="object-cover w-full h-full" />
+                           <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg shadow-pink-900/10 group-hover/note:scale-105 transition-transform border border-neutral-100">
+                              <Image src="/prfume-bannar-2.jpg" alt="Floral" width={80} height={80} className="object-cover w-full h-full" />
                            </div>
                            <span className="text-xs font-medium text-neutral-600 capitalize">Floral</span>
+                        </Link>
+                        <Link href="/collections/womens" className="flex flex-col items-center gap-3 group/note">
+                           <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg shadow-red-900/20 group-hover/note:scale-105 transition-transform border border-neutral-100">
+                              <Image src="/perfume/elan-perfume1.png" alt="Sweet" width={80} height={80} className="object-cover w-full h-full bg-neutral-100" />
+                           </div>
+                           <span className="text-xs font-medium text-neutral-600 capitalize">Sweet</span>
+                        </Link>
+                        <Link href="/collections/womens" className="flex flex-col items-center gap-3 group/note">
+                           <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg shadow-pink-900/10 group-hover/note:scale-105 transition-transform border border-neutral-100">
+                              <Image src="/perfume/first-dance1.png" alt="Musk" width={80} height={80} className="object-cover w-full h-full bg-neutral-100" />
+                           </div>
+                           <span className="text-xs font-medium text-neutral-600 capitalize">Musk</span>
                         </Link>
                      </div>
                   </div>
@@ -219,17 +243,17 @@ export function Navbar() {
                   {/* Banners Column */}
                   <div className="flex flex-col gap-4 flex-[1.5]">
                      <Link href="/collections/womens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
-                        <Image src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop" alt="Best Sellers" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <Image src="/Philosophy.png" alt="Best Sellers" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-white/10 group-hover/banner:bg-white/0 transition-colors"></div>
                         <div className="absolute inset-0 flex items-center px-8 text-black text-2xl font-serif tracking-widest drop-shadow-xl" style={{textShadow: "2px 2px 10px rgba(255,255,255,0.7)"}}>BEST SELLERS</div>
                      </Link>
                      <Link href="/collections/womens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
-                        <Image src="https://images.unsplash.com/photo-1588405748880-12d1d2a59a72?q=80&w=800&auto=format&fit=crop" alt="Gift Sets" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <Image src="/prfume-bannar-4.png" alt="Gift Sets" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-amber-900/40 group-hover/banner:bg-amber-900/20 transition-colors"></div>
                         <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg">GIFT SETS</div>
                      </Link>
                      <Link href="/collections/womens" className="relative w-full h-[80px] rounded overflow-hidden group/banner block shadow-md">
-                        <Image src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?q=80&w=800&auto=format&fit=crop" alt="CLE Original" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
+                        <Image src="/prfume-bannar-3.jpg" alt="CLE Original" fill className="object-cover group-hover/banner:scale-105 transition-transform duration-700" />
                         <div className="absolute inset-0 bg-yellow-900/40 group-hover/banner:bg-yellow-900/20 transition-colors"></div>
                         <div className="absolute inset-0 flex items-center p-6 text-white text-2xl font-serif tracking-widest drop-shadow-lg">CLE ORIGINAL</div>
                      </Link>

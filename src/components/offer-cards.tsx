@@ -7,7 +7,7 @@ export function OfferCards() {
       title: "Signature Sets",
       description: "Curated collections of our finest scents, beautifully bundled and packaged.",
       linkText: "Shop Sets",
-      href: "/offers/signature-sets",
+      href: "/signature-sets",
       bgColor: "bg-[#F3F0EA]", // Muted earthy sand
       textColor: "text-neutral-900"
     },
@@ -15,7 +15,7 @@ export function OfferCards() {
       title: "Personal Engraving",
       description: "Add a personalized engraving to your bottle, available on all 100ml flacons.",
       linkText: "Learn More",
-      href: "/offers/personal-engraving",
+      href: "/personal-engraving",
       bgColor: "bg-[#EBEFF5]", // Soft arctic blue
       textColor: "text-neutral-900"
     },
@@ -23,7 +23,7 @@ export function OfferCards() {
       title: "Complimentary Samples",
       description: "Receive two complimentary luxury miniatures with every online order.",
       linkText: "View Details",
-      href: "/offers/complimentary-samples",
+      href: "/complimentary-samples",
       bgColor: "bg-[#F5EBEB]", // Faded rose
       textColor: "text-neutral-900"
     }
